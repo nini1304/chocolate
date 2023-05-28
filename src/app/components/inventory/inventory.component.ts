@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {InventoryDto} from "../../dto/inventory.dto";
 import {InventoryService} from "../../service/inventory.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-inventory',
@@ -12,7 +13,9 @@ export class InventoryComponent {
   pages:number=0
   total:number=0
 
-  constructor(private service:InventoryService) {
+
+  constructor(private service:InventoryService, private router: Router) {
+
 
   }
   ngOnInit(){
@@ -25,6 +28,11 @@ export class InventoryComponent {
       }
     })
   }
+  updateItem(itemId: number) {
+    this.router.navigate(['/updateinv', itemId]);
+  }
+
+
 
   increment(){
     if(this.pages<this.total){
@@ -49,12 +57,19 @@ export class InventoryComponent {
     }
   }
   deleteItem(itemId: number) {
-    // Lógica para eliminar el elemento con el ID especificado
+    console.log(itemId);
+    this.service.deleteInventory(itemId).subscribe({
+      next: data => {
+        // this.router.navigate(['/inventory']);
+        console.log('invocacion exitosa');
+        console.log(data);
+      }
+    })
+
   }
 
-  updateItem(itemId: number) {
-    // Lógica para actualizar el elemento con el ID especificado
-  }
+
+
 
 
   displayedColumns: string[] = ['ID', 'NAME', 'DESCRIPTION', 'PRICE', 'IMAGE','ACTIONS'];

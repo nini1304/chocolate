@@ -13,6 +13,8 @@ import {MatTableModule} from "@angular/material/table";
 import { MatIconModule } from '@angular/material/icon';
 import { StartComponent } from './components/start/start.component';
 import {InventoryComponent} from "./components/inventory/inventory.component";
+import { UpdateinvComponent } from './components/updateinv/updateinv.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 
@@ -20,7 +22,8 @@ import {InventoryComponent} from "./components/inventory/inventory.component";
   declarations: [
     AppComponent,
     StartComponent,
-    InventoryComponent
+    InventoryComponent,
+    UpdateinvComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import {InventoryComponent} from "./components/inventory/inventory.component";
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

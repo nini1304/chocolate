@@ -1,0 +1,31 @@
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<form class="example-form" [formGroup]="inventoryForm" (ngSubmit)="updateItem()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Price</mat-label>
+    <input matInput formControlName="price">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Image</mat-label>
+    <input matInput formControlName="image"/>
+  </mat-form-field>
+  <button mat-raised-button style="background-color: #C1A57B; color: #ECECEC; margin-left: 200px;font-family: fantasy; font-size: 20px"(click)="updateItem()">UPDATE</button>
+
+</form>
+
+
+
+</body>
