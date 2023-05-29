@@ -15,6 +15,8 @@ import { StartComponent } from './components/start/start.component';
 import {InventoryComponent} from "./components/inventory/inventory.component";
 import { UpdateinvComponent } from './components/updateinv/updateinv.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
+import { CreateinvComponent } from './components/createinv/createinv.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 
 
@@ -23,7 +25,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     AppComponent,
     StartComponent,
     InventoryComponent,
-    UpdateinvComponent
+    UpdateinvComponent,
+    CreateinvComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

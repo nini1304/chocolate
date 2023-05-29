@@ -5,8 +5,8 @@
 <br>
 <br>
 <br>
-<h1 style="text-align: center; color: white;">UPDATE PRODUCT</h1>
-<form class="example-form" [formGroup]="inventoryForm">
+<h1 style="text-align: center; color: white;">CREATE PRODUCT</h1>
+<form class="example-form" [formGroup]="createinvForm">
   <mat-form-field class="example-full-width">
     <mat-label>Name</mat-label>
     <input matInput formControlName="productName">
@@ -23,7 +23,7 @@
     <mat-label>Image</mat-label>
     <input matInput formControlName="image"/>
   </mat-form-field>
-  <button mat-raised-button style="background-color: #30475E; color: white; margin-left: 200px;font-family: fantasy; font-size: 20px"(click)="updateItem()">UPDATE</button>
+  <button mat-raised-button style="background-color: #30475E; color: white; margin-left: 200px;font-family: fantasy; font-size: 20px"(click)="createItem()">CREATE</button>
 
 </form>
 

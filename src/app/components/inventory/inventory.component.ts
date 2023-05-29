@@ -28,6 +28,9 @@ export class InventoryComponent {
       }
     })
   }
+  createItem() {
+    this.router.navigate(['/createinv']);
+  }
   updateItem(itemId: number) {
     this.router.navigate(['/updateinv', itemId]);
   }
@@ -58,7 +61,7 @@ export class InventoryComponent {
   }
   deleteItem(itemId: number) {
     console.log(itemId);
-    this.service.deleteInventory(itemId).subscribe({
+    this.service.deleteProduct(itemId).subscribe({
       next: data => {
         // this.router.navigate(['/inventory']);
         console.log('invocacion exitosa');

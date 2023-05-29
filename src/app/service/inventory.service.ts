@@ -14,15 +14,20 @@ export class InventoryService {
 
   }
 
+  public createProduct(productName: string, description: string, price: number, image: string): Observable<any> {
+
+    return this.http.post<any>(`${this.BACK_URL}/api/v1/product/register?productName=${productName}&description=${description}&price=${price}&image=${image}`, null);
+  }
+
   public recordInventory(pages:number): Observable<any> {
-    return this.http.get<any>(`${this.BACK_URL}/api/v1/product/all?page=`+pages+`&size=10`);
+    return this.http.get<any>(`${this.BACK_URL}/api/v1/product/all?page=`+pages+`&size=5`);
   }
 
-  public updateInventory(id: number, name: string, description: string, price: number, image: string): Observable<any> {
+  public updateProduct(id: number, productName: string, description: string, price: number, image: string): Observable<any> {
 
-    return this.http.put<any>(`${this.BACK_URL}/api/v1/product/update?id=${id}&productName=${name}&description=${description}&price=${price}&image=${image}`, null);
+    return this.http.put<any>(`${this.BACK_URL}/api/v1/product/update?id=${id}&productName=${productName}&description=${description}&price=${price}&image=${image}`, null);
   }
-  public deleteInventory(id:number): Observable<any> {
+  public deleteProduct(id:number): Observable<any> {
     return this.http.delete<any>(`${this.BACK_URL}/api/v1/product/delete?id=${id}`);
   }
 }

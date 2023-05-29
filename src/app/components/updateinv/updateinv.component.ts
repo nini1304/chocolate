@@ -14,7 +14,7 @@ export class UpdateinvComponent {
   id: number=0;
   constructor(private formBuilder: FormBuilder, private service:InventoryService, private route: ActivatedRoute, private router: Router) {
     this.inventoryForm = this.formBuilder.group({
-      name: [''], // Valor inicial vacío
+      productName: [''], // Valor inicial vacío
       description: [''], // Valor inicial vacío
       price: [''], // Valor inicial vacío
       image: [''] // Valor inicial vacío
@@ -29,9 +29,9 @@ export class UpdateinvComponent {
     console.log(this.id); // Utiliza el ID recibido
     console.log(this.inventoryForm.value);
     this.service
-      .updateInventory(
+      .updateProduct(
         this.id,
-        this.inventoryForm.value.name,
+        this.inventoryForm.value.productName,
         this.inventoryForm.value.description,
         this.inventoryForm.value.price,
         this.inventoryForm.value.image
