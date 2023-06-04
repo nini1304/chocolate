@@ -1,0 +1,26 @@
+<body>
+<br>
+<br>
+<br>
+<div class="product-list">
+  <mat-card *ngFor="let product of products" class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title style="font-family: fantasy; font-size: 20px;color: #30475E">{{ product.productName }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="product.image" alt="Photo of {{ product.productName }}">
+    <mat-card-content>
+      <p>{{ product.description }}</p>
+      <p>Price: {{ product.price }}</p>
+    </mat-card-content>
+    <form class="example-form" [formGroup]="productForm">
+    <mat-form-field>
+      <input matInput type="number" formControlName="quantity" placeholder="Quantity">
+    </mat-form-field>
+    </form>
+    <mat-card-actions>
+      <button mat-button (click)="buyProduct(product.id,product.price)">BUY</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+</body>

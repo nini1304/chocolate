@@ -19,8 +19,8 @@ export class InventoryService {
     return this.http.post<any>(`${this.BACK_URL}/api/v1/product/register?productName=${productName}&description=${description}&price=${price}&image=${image}`, null);
   }
 
-  public recordInventory(pages:number): Observable<any> {
-    return this.http.get<any>(`${this.BACK_URL}/api/v1/product/all?page=`+pages+`&size=5`);
+  public recordInventory(pages:number, size:number): Observable<any> {
+    return this.http.get<any>(`${this.BACK_URL}/api/v1/product/all?page=`+pages+`&size=${size}`);
   }
 
   public updateProduct(id: number, productName: string, description: string, price: number, image: string): Observable<any> {
@@ -29,5 +29,13 @@ export class InventoryService {
   }
   public deleteProduct(id:number): Observable<any> {
     return this.http.delete<any>(`${this.BACK_URL}/api/v1/product/delete?id=${id}`);
+  }
+  public createReview(comment: String, rating: number, id: number): Observable<any> {
+
+    return this.http.post<any>(`http://localhost:9113/api/v1/review/register?reviewComment=${comment}&reviewScore=${rating}&productId=${id}`, null);
+  }
+  public buyProduct(id: number, quantity: number,timestamp: object,price: number): Observable<any> {
+
+    return this.http.post<any>(`http://localhost:5679/api/v1/orderItem/register?productId=${id}&cantidad=${quantity}&fecha=${timestamp}&precioUnitario=${price}`, null);
   }
 }

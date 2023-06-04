@@ -4,6 +4,8 @@ import {StartComponent} from "./components/start/start.component";
 import {InventoryComponent} from "./components/inventory/inventory.component";
 import { UpdateinvComponent } from './components/updateinv/updateinv.component';
 import {CreateinvComponent} from "./components/createinv/createinv.component";
+import {ProductsComponent} from "./components/products/products.component";
+import {CreatereviewComponent} from "./components/createreview/createreview.component";
 
 
 
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'inventory', component: InventoryComponent},
   { path: 'updateinv/:id', component: UpdateinvComponent},
   { path: 'createinv', component: CreateinvComponent},
+  { path: 'products', component: ProductsComponent},
+  { path: 'createreview/:id', component: CreatereviewComponent}
 
 
 

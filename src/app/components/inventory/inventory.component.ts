@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Renderer2} from '@angular/core';
 import {InventoryDto} from "../../dto/inventory.dto";
 import {InventoryService} from "../../service/inventory.service";
 import {Router} from "@angular/router";
@@ -12,6 +12,7 @@ export class InventoryComponent {
   inventoryDto: InventoryDto[] = []
   pages:number=0
   total:number=0
+  size:number=4
 
 
   constructor(private service:InventoryService, private router: Router) {
@@ -19,7 +20,7 @@ export class InventoryComponent {
 
   }
   ngOnInit(){
-    this.service.recordInventory(this.pages).subscribe({
+    this.service.recordInventory(this.pages,this.size).subscribe({
       next: data => {
         console.log(data);
         this.inventoryDto=data['content'];
@@ -31,8 +32,8 @@ export class InventoryComponent {
   createItem() {
     this.router.navigate(['/createinv']);
   }
-  updateItem(itemId: number) {
-    this.router.navigate(['/updateinv', itemId]);
+  updateItem(id: number) {
+    this.router.navigate(['/updateinv', id]);
   }
 
 
@@ -40,7 +41,7 @@ export class InventoryComponent {
   increment(){
     if(this.pages<this.total){
       this.pages++;
-      this.service.recordInventory(this.pages).subscribe({
+      this.service.recordInventory(this.pages,this.size).subscribe({
         next:data=>{
           this.inventoryDto=data['content'];
           this.total=data['totalPages'];
@@ -51,7 +52,7 @@ export class InventoryComponent {
   decrement(){
     if(this.pages>0){
       this.pages--;
-      this.service.recordInventory(this.pages).subscribe({
+      this.service.recordInventory(this.pages,this.size).subscribe({
         next:data=>{
           this.inventoryDto=data['content'];
           this.total=data['totalPages'];
@@ -59,11 +60,11 @@ export class InventoryComponent {
       })
     }
   }
-  deleteItem(itemId: number) {
-    console.log(itemId);
-    this.service.deleteProduct(itemId).subscribe({
+  deleteItem(id: number) {
+    console.log(id);
+    this.service.deleteProduct(id).subscribe({
       next: data => {
-        // this.router.navigate(['/inventory']);
+        location.reload();
         console.log('invocacion exitosa');
         console.log(data);
       }

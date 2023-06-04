@@ -14,9 +14,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { StartComponent } from './components/start/start.component';
 import {InventoryComponent} from "./components/inventory/inventory.component";
 import { UpdateinvComponent } from './components/updateinv/updateinv.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatFormFieldModule, MatLabel} from "@angular/material/form-field";
 import { CreateinvComponent } from './components/createinv/createinv.component';
-import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ProductsComponent } from './components/products/products.component';
+import {MatCardModule} from "@angular/material/card";
+import { CreatereviewComponent } from './components/createreview/createreview.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 
@@ -27,7 +30,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     InventoryComponent,
     UpdateinvComponent,
     CreateinvComponent,
-    ReviewsComponent
+    ProductsComponent,
+    CreatereviewComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     HttpClientModule,
     MatTableModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

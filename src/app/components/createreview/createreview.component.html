@@ -1,0 +1,30 @@
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 style="text-align: center; color: white;">GIVE US YOUR OPINION</h1>
+<form [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+  <textarea id="comment" formControlName="comment" rows="4" placeholder="Write your comment here"></textarea>
+  <div class="advice" *ngIf="reviewForm.get('comment')?.invalid && reviewForm.get('comment')?.touched">
+    Comment is required.
+  </div>
+  <select id="rating" formControlName="rating">
+    <option value="" disabled>Select rating</option>
+    <option value="1">1 star</option>
+    <option value="2">2 stars</option>
+    <option value="3">3 stars</option>
+    <option value="4">4 stars</option>
+    <option value="5">5 stars</option>
+  </select>
+  <div class="advice" *ngIf="reviewForm.get('rating')?.invalid && reviewForm.get('rating')?.touched">
+    Rating is required.
+  </div>
+
+  <button type="submit" style="background-color: #30475E; color: white;font-family: fantasy; font-size: 24px" [disabled]="reviewForm.invalid">Submit</button>
+</form>
+
+
+</body>
