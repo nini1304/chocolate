@@ -20,6 +20,9 @@ import { ProductsComponent } from './components/products/products.component';
 import {MatCardModule} from "@angular/material/card";
 import { CreatereviewComponent } from './components/createreview/createreview.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {initializeKeycloak} from "./init/keycloak";
+import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import { ClientproductsComponent } from './components/clientproducts/clientproducts.component';
 
 
 
@@ -31,7 +34,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     UpdateinvComponent,
     CreateinvComponent,
     ProductsComponent,
-    CreatereviewComponent
+    CreatereviewComponent,
+    ClientproductsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +49,17 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatIconModule,
     MatFormFieldModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    KeycloakAngularModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

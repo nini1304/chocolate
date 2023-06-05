@@ -1,0 +1,14 @@
+<body>
+<br>
+<br>
+<br>
+<div class="product-list">
+  <mat-card *ngFor="let product of products" class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title style="font-family: fantasy; font-size: 20px;color: #30475E">{{ product.productName }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="product.image" alt="Photo of {{ product.productName }}">
+  </mat-card>
+</div>
+</body>
